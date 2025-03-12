@@ -1,37 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Danh sách thiết bị văn phòng</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 9B</title>
 </head>
 <body>
-    <h1>Nhập danh sách thiết bị văn phòng</h1>
-    <textarea id="devices" rows="5" cols="50"></textarea><br>
-    <button onclick="displayComputers()">Hiển thị Computer</button>
-    <table id="computerTable" border="1">
-        <thead>
-            <tr>
-                <th>Tên thiết bị</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-
     <script>
-        function displayComputers() {
-            var devicesInput = document.getElementById("devices").value;
-            var devicesList = devicesInput.split("\n"); // Tách chuỗi thành mảng theo dòng
-            var computerTableBody = document.getElementById("computerTable").getElementsByTagName("tbody")[0];
-            computerTableBody.innerHTML = ""; // Xóa nội dung bảng cũ
+        var soLuong, x;
+        var DS = new Array(100);
 
-            for (var i = 0; i < devicesList.length; i++) {
-                var device = devicesList[i].trim(); // Loại bỏ khoảng trắng đầu và cuối
-                if (device.toLowerCase() === "Computer") {
-                    var row = computerTableBody.insertRow();
-                    var cell = row.insertCell();
-                    cell.textContent = device;
-                }
+        soLuong = prompt("Nhap so luong thiet bi: ");
+        soLuong = parseInt(soLuong);
+        for(var i = 0; i < soLuong; i++) {
+            DS[i] = prompt("Nhap ten thiet bi thu " + (i+1) + ": ", "");
+        }
+
+        document.write("<h1>Danh sach thiet bi la 'Computer'</h1>");
+        document.write("<table border='1' cellspacing='0' cellpadding='5'");
+        document.write("<tr><td>STT</td><td>Ten thiet bi</td></tr>");
+
+        var hasComputer = false;
+        for(var i in DS){
+            if(DS[i] === "Computer") {
+                hasComputer = true;
+                document.write("<tr><td>" + (parseInt(i) +1) + "</td><td>" + DS[i] + "</td></tr>");
             }
+        }
+
+        document.write("</table>");
+        if(!hasComputer) {
+            document.write("<p>Khong co thiet bi nao la 'Computer'.</p>");
         }
     </script>
 </body>

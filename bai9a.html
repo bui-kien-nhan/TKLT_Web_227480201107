@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 9A</title>
+</head>
+<body>
+    <script>
+        var soLuong, x;
+        var DS = new Array(100);
+        soLuong = prompt("Nhập vào số lượng người: ", "");
+        soLuong = parseInt(soLuong);
+        for (i=0; i<soLuong;i++)
+        {
+            DS[i] = prompt("Nhập vào họ tên: ", "");
+        }
+        DS.sort();
+        document.write("<h1>Danh sách sau khi sắp xếp </h1>");
+        for (x in DS)
+        {
+            document.write(DS[x] + "<br>");
+        }
+    </script>
+</body>
+</html>
